@@ -1,8 +1,9 @@
-// 
-// unsolved 
-// comments: 
+// https://adventofcode.com/2025/day/3
+// solved 12/3
+// comments: i'm going to sleep
 
 #include <bits/stdc++.h>
+#include <string>
 #include "../headers/all.hpp"
 
 using namespace std;
@@ -30,15 +31,31 @@ void solve(){
     str next;
     while(getline(cin,next)){ 
  	    stringstream ss(next);
- 	    ll next;
-    	vll v; 
+ 	    str s;
 
- 	    while (ss >> next) {
-	     v.push_back(next);
- 	    }
+ 	    while (ss >> s) {
+ 	     str retadd = "";
+ 	     int pos = -1;
+
+ 	     for (int i=0; i<12; i++){
+ 	       int mx = 0;
+ 	       int mxi = 0;
+ 	       for (int j=pos+1; j<=s.size()-(12-i); j++){
+   	       str chr;
+   	       chr.pb(s[j]);
+ 	         if (stoi(chr) > mx){
+ 	           mx = stoi(chr);
+ 	           mxi = j;
+ 	         }
+ 	       }
+        retadd += to_string(mx);
+        pos = mxi;
+ 	     }
+ 	     ret += stoll(retadd);
     }
 
-    cout << ret;
+  }
+  cout << ret;
 }
 
 int main(){
