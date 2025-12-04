@@ -1,5 +1,5 @@
 // https://adventofcode.com/2025/day/4
-// solved 12/5/25
+// solved 12/4/25
 // comments: lol
 
 #include <bits/stdc++.h>
